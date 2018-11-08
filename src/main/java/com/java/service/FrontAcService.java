@@ -61,7 +61,6 @@ public class FrontAcService {
      * Description:根据id获取当前信息 <br/>
      *
      * @author chenWP
-     * @param id
      * @return
      * @throws IOException
      */
@@ -75,7 +74,6 @@ public class FrontAcService {
      * Description:根据name获取当前信息 <br/>
      *
      * @author chenWP
-     * @param name
      * @return
      * @throws IOException
      */

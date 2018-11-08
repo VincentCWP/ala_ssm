@@ -37,7 +37,6 @@ public class FrontPcService {
      * Description:亲子旅游添加信息 <br/>
      *
      * @author chenWP
-     * @param activity
      * @throws IOException
      */
     public void add(Pcly pcly) throws IOException {
@@ -61,7 +60,6 @@ public class FrontPcService {
      * Description:根据id获取当前信息 <br/>
      *
      * @author chenWP
-     * @param id
      * @return
      * @throws IOException
      */
@@ -75,7 +73,6 @@ public class FrontPcService {
      * Description:修改信息 <br/>
      *
      * @author chenWP
-     * @param activity
      * @throws IOException
      */
     public void update(Pcly pcly) throws IOException {
@@ -87,7 +84,6 @@ public class FrontPcService {
      * Description: 删除信息<br/>
      *
      * @author chenWP
-     * @param hdid
      * @throws IOException
      */
     public void delete(Long lyid) throws IOException {
