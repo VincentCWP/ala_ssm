@@ -2,11 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.java.mapper.ActivityMapper">
 
-
     <select id="selecThdtype" resultType="com.java.pojo.Activity">
         SELECT *
         FROM pchd
-        GROUP BY hdtype
+        order BY hdtype desc
     </select>
     <select id="selectActivity" parameterType="com.java.pojo.Activity" resultType="com.java.pojo.Activity">
         SELECT * FROM pchd where 1=1
@@ -21,8 +20,7 @@
     <select id="selectHdaddress" resultType="com.java.pojo.Activity">
         SELECT *
         FROM pchd
-        GROUP BY hdaddress
+        order BY hdaddress desc
     </select>
-
 
 </mapper>
