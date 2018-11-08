@@ -11,10 +11,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-        <spring.version>4.3.20.RELEASE</spring.version>
+        <spring.version>5.1.2.RELEASE</spring.version>
         <jackson.version>2.9.7</jackson.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -22,8 +21,8 @@
             <version>${spring.version}</version>
             <exclusions>
                 <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-jcl</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -135,13 +134,13 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
+            <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jsp-api</artifactId>
-            <version>8.5.34</version>
+            <version>9.0.12</version>
             <scope>provided</scope>
         </dependency>
 
