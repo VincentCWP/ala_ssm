@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.java.mapper.FrontUsMapper" >
+
+<!-- 针对管理员的信息，对管理员/会员进行增删改查 -->
+
+
+<!-- 添加信息 -->
+   <insert id="addus" parameterType="user">
+	INSERT INTO user SET username=#{username},phone=#{phone},address=#{address},email=#{email},password=#{password},role=#{role}
+   </insert>
+<!-- 管理员信息列表 -->
+    <select id="findus" parameterType="Integer" resultType="user">
+	select userID,username,phone,address,email from user where role=1
+	</select>
+	
+	<!-- 普通会员信息列表 -->
+    <select id="findall" parameterType="Integer" resultType="user">
+	select userID,username,phone,address,email,qq,babyname from user where role=2
+	</select>
+
+<!-- 根據id號修改管理员信息 -->
+ 	<!--<update id="updateus"  parameterType="user"  >-->
+ 	<!--UPDATE user SET role=#{role},username=#{username},phone=#{phone},address=#{address},email=#{email},password=#{password}-->
+ 	<!--where userID=#{userID}-->
+ 	<!--</update>-->
+ 	
+ 	<!-- 根據id號修改会员信息 -->
+ 	<update id="updateall"  parameterType="user"  >
+ 	UPDATE user SET username=#{username},phone=#{phone},address=#{address},email=#{email},password=#{password},qq=#{qq},babyname=#{babyname}
+ 	where userID=#{userID}
+ 	</update>
+
+
+<!--删除信息 根据id号  -->
+ 	<delete id="deleteall" parameterType="Long">
+ 	delete from user 
+ 	where userID=#{userID}
+ 	</delete>
+ 	
+ 	<!-- 管理员修改密码 通过name -->
+ 	<update id="updatepp" parameterType="user" >
+ 	UPDATE user SET password=#{password},phone=#{phone},address=#{address},email=#{email}
+ 	where username=#{username} 
+ 	</update>
+ 	
+ 	<!-- 先找出id号 利用id号进行修改管理员信息 -->
+	<select id="getUserA" parameterType="Long" resultType="user">
+ 		select role,username,phone,address,email,password from user where userID=#{userID}
+ 	</select> 
+ 	
+ 	<!-- 先找出id号 利用id号进行修改会员信息 -->
+	<select id="getUserB" parameterType="Long" resultType="user">
+ 		select role,username,phone,address,email,password,qq,babyname from user where userID=#{userID}
+ 	</select> 
+ </mapper>

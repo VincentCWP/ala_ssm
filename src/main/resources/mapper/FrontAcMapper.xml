@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.java.mapper.FrontAcMapper">
+
+	<!-- 添加信息 -->
+	<insert id="addActivity" parameterType="activity">
+		INSERT INTO pchd SET
+		hdaddress=#{hdaddress},hdtime=#{hdtime},hdtype=#{hdtype},hdname=#{hdname},hdstate=#{hdstate},hdprice=#{hdprice},hddetails=#{hddetails},hdpicture=#{hdpicture}
+	</insert>
+
+	<!-- 信息列表 -->
+	<select id="find" resultType="activity">
+		select * from pchd
+	</select>
+
+	<!-- 根據id號修改信息 -->
+	<update id="update" parameterType="activity">
+		update pchd
+    <set >
+      <if test="hdaddress != null" >
+        hdaddress = #{hdaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="hdtype != null" >
+        hdtype = #{hdtype,jdbcType=VARCHAR},
+      </if>
+      <if test="hdtime != null" >
+        hdtime = #{hdtime,jdbcType=VARCHAR},
+      </if>
+      <if test="hdname != null" >
+        hdname = #{hdname,jdbcType=VARCHAR},
+      </if>
+      <if test="hdprice != null" >
+        hdprice = #{hdprice,jdbcType=INTEGER},
+      </if>
+      <if test="hddetails != null" >
+        hddetails = #{hddetails,jdbcType=VARCHAR},
+      </if>
+      <if test="hdpicture != null" >
+        hdpicture = #{hdpicture,jdbcType=VARCHAR},
+      </if>
+      <if test="hdstate != null" >
+        hdstate = #{hdstate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where hdid = #{hdid,jdbcType=BIGINT}
+  </update>
+	
+
+
+	<!--删除信息 根据id号 -->
+	<delete id="delete" parameterType="Long">
+		delete from pchd
+		where hdid=#{hdid}
+	</delete>
+
+	<!-- 先找出id号 利用id号进行修改 -->
+	<select id="getActivity" parameterType="Long" resultType="activity">
+		select * from pchd where hdid=#{hdid}
+	</select>
+
+	<!-- 模糊查询，通过活动名称 “hdname” -->
+	<select id="getName" parameterType="activity" resultType="activity">
+		SELECT * FROM pchd  where hdname like '%${hdname}%' 
+		<!-- <where>
+			<if test="_parameter!=null and _parameter!='' ">
+				and hdname like #{_parameter}  
+			</if>
+		</where> -->
+	</select>
+
+</mapper>

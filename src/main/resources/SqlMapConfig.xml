@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<!-- 解<configuration>里面的文件 -->
+	<typeAliases>
+		<typeAlias type="com.java.pojo.Activity" alias="activity" />
+		<typeAlias type="com.java.pojo.Pcly" alias="pcly" />
+		<typeAlias type="com.java.pojo.Order" alias="order" />
+		<typeAlias type="com.java.pojo.User" alias="user" />
+	</typeAliases>
+
+	<!--<mappers>-->
+		<!--<mapper resource="com/java/mapper/FrontAcMapper.xml" />-->
+		<!--<mapper resource="com/java/mapper/FrontPcMapper.xml" />-->
+		<!--<mapper resource="com/java/mapper/FrontOoMapper.xml" />-->
+		<!--<mapper resource="com/java/mapper/FrontUsMapper.xml" />-->
+	<!--</mappers>-->
+
+</configuration>
+

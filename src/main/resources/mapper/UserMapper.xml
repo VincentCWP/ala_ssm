@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.java.mapper.UserMapper" > 
+  
+
+  <select id="findUserByNameAndPassword" resultType="com.java.pojo.User">
+  SELECT * FROM  `user` WHERE username=#{username} AND password=#{password};
+  </select>
+   <insert id="addUser" parameterType="com.java.pojo.User">
+   
+   INSERT INTO user SET username=#{username},password=#{password},email=#{email},phone=#{phone},address=#{address},qq=#{qq},babyname=#{babyname},role=#{role} 
+   </insert>
+   
+   <select id="isUserExists" parameterType="com.java.pojo.User" resultType="com.java.pojo.User">
+       SELECT * FROM  `user` WHERE username=#{username}
+   </select>
+   
+   <select id="isPhoneExists" parameterType="com.java.pojo.User" resultType="com.java.pojo.User">
+       SELECT * FROM  `user` WHERE phone=#{phone}
+   </select>
+   
+   <select id="isQQExists" parameterType="com.java.pojo.User" resultType="com.java.pojo.User">
+       SELECT * FROM  `user` WHERE qq=#{qq}
+   </select>
+   
+   <select id="isEmailExists" parameterType="com.java.pojo.User" resultType="com.java.pojo.User">
+       SELECT * FROM  `user` WHERE email=#{email}
+   </select>
+   
+   <update id="updateByUsername"  parameterType="com.java.pojo.User">
+   update user set password=#{password},phone=#{phone},email=#{email} where username=#{username}
+   </update>
+   
+   <select id="selectAll" resultType="com.java.pojo.User">
+   select * from user 
+   </select>
+   
+</mapper>
