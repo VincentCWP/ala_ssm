@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 8.0.12, for osx10.13 (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.58, for Win64 (AMD64)
 --
 -- Host: 127.0.0.1    Database: ala
 -- ------------------------------------------------------
--- Server version	8.0.12
+-- Server version	5.5.58-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
- SET NAMES utf8mb4 ;
+/*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,7 +21,7 @@
 
 DROP TABLE IF EXISTS `hdzs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `hdzs` (
   `zsid` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `zspicture` varchar(500) DEFAULT NULL COMMENT '图片（存放图片地址）',
@@ -45,7 +45,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `order`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `order` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `oname` varchar(50) DEFAULT NULL COMMENT '订单名',
@@ -78,7 +78,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `pchd`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pchd` (
   `hdid` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `hdaddress` varchar(50) DEFAULT NULL COMMENT '活动区域地址',
@@ -108,7 +108,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `pcly`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pcly` (
   `lyid` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `lytype` varchar(50) DEFAULT NULL COMMENT '出游时长(一日游，二日游.....)',
@@ -137,19 +137,19 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
   `userID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `username` varchar(50) DEFAULT NULL COMMENT '用戶名',
   `password` varchar(50) DEFAULT NULL COMMENT '密码',
   `role` int(11) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
-  `phone` int(50) DEFAULT NULL COMMENT '手机号',
+  `phone` varchar(16) DEFAULT NULL COMMENT '手机号',
   `address` varchar(500) DEFAULT NULL COMMENT '地址',
   `qq` varchar(50) DEFAULT NULL COMMENT 'QQ号',
   `babyname` varchar(50) DEFAULT NULL COMMENT '宝宝名字',
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,6 +158,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'admin','b8786d0584dbfcd7a5b9c029704440a5',2,'351627402@qq.com','13437187916','湖北','351627402','陈宝宝');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -170,4 +171,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-08 10:51:35
+-- Dump completed on 2018-11-08 11:13:23
