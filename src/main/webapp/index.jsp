@@ -1,10 +1,9 @@
-<%@ page language="java" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ page pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
 %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -24,7 +23,7 @@
 <body>
 
 <script type="text/javascript">
-    window.location.href = "<%=path %>/selectindex.action";
+    window.location.href = "${ctx}/selectindex.action";
 </script>
 </body>
 </html>
