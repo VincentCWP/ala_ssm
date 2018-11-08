@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.java.mapper.ActivityMapper" > 
-  
-  
-  <select id="selecThdtype" resultType="com.java.pojo.Activity">
-  	SELECT * FROM pchd GROUP BY hdtype
-  </select>
-  <select id="selectActivity" parameterType="com.java.pojo.Activity"  resultType="com.java.pojo.Activity">
-  	SELECT * FROM pchd where 1=1
-  	<if test="hdaddress != null and hdaddress != '' ">
-  	and hdaddress=#{hdaddress}
-  	</if> 
-  	<if test="hdtype != null and hdtype != '' ">
-  	and hdtype=#{hdtype}
-  	</if>
-  	
-  </select>
-  <select id="selectHdaddress" resultType="com.java.pojo.Activity">
-  	SELECT * FROM pchd GROUP BY hdaddress
-  </select>
- 
-  
+<mapper namespace="com.java.mapper.ActivityMapper">
+
+
+    <select id="selecThdtype" resultType="com.java.pojo.Activity">
+        SELECT *
+        FROM pchd
+        GROUP BY hdtype
+    </select>
+    <select id="selectActivity" parameterType="com.java.pojo.Activity" resultType="com.java.pojo.Activity">
+        SELECT * FROM pchd where 1=1
+        <if test="hdaddress != null and hdaddress != '' ">
+            and hdaddress=#{hdaddress}
+        </if>
+        <if test="hdtype != null and hdtype != '' ">
+            and hdtype=#{hdtype}
+        </if>
+
+    </select>
+    <select id="selectHdaddress" resultType="com.java.pojo.Activity">
+        SELECT *
+        FROM pchd
+        GROUP BY hdaddress
+    </select>
+
+
 </mapper>

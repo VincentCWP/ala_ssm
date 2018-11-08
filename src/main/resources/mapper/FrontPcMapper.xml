@@ -3,61 +3,73 @@
 
 <mapper namespace="com.java.mapper.FrontPcMapper">
 
-	<!-- 添加信息 -->
-	<insert id="add" parameterType="pcly">
-		INSERT INTO pcly SET
-		lytype=#{lytype},lyname=#{lyname},lyaddress=#{lyaddress},lypriceA=#{lypriceA},lypriceB=#{lypriceB},lyage=#{lyage},lypicture=#{lypicture}
-	</insert>
+    <!-- 添加信息 -->
+    <insert id="add" parameterType="pcly">
+        INSERT INTO pcly
+        SET lytype    = #{lytype},
+            lyname    = #{lyname},
+            lyaddress = #{lyaddress},
+            lypriceA  = #{lypriceA},
+            lypriceB  = #{lypriceB},
+            lyage     = #{lyage},
+            lypicture = #{lypicture}
+    </insert>
 
-	<!-- 信息列表 -->
-	<select id="find" resultType="pcly">
-		select * from pcly
-	</select>
+    <!-- 信息列表 -->
+    <select id="find" resultType="pcly">
+        select *
+        from pcly
+    </select>
 
-	<!-- 根據id號修改信息 -->
-	<update id="update" parameterType="pcly">
-		UPDATE pcly
-		<set>
-			<if test="lytype != null">
-				lytype = #{lytype,jdbcType=VARCHAR},
-			</if>
-			<if test="lyname != null">
-				lyname = #{lyname,jdbcType=VARCHAR},
-			</if>
-			<if test="lyaddress != null">
-				lyaddress = #{lyaddress,jdbcType=VARCHAR},
-			</if>
-			<if test="lypriceA != null">
-				lypriceA = #{lypriceA,jdbcType=INTEGER},
-			</if>
-			<if test="lypriceB != null">
-				lypriceB = #{lypriceB,jdbcType=INTEGER},
-			</if>
-			<if test="lyage != null">
-				lyage = #{lyage,jdbcType=INTEGER},
-			</if>
-			<if test="lypicture != null">
-				lypicture = #{lypicture,jdbcType=VARCHAR},
-			</if>
-		</set>
-		where lyid=#{lyid}
-	</update>
+    <!-- 根據id號修改信息 -->
+    <update id="update" parameterType="pcly">
+        UPDATE pcly
+        <set>
+            <if test="lytype != null">
+                lytype = #{lytype,jdbcType=VARCHAR},
+            </if>
+            <if test="lyname != null">
+                lyname = #{lyname,jdbcType=VARCHAR},
+            </if>
+            <if test="lyaddress != null">
+                lyaddress = #{lyaddress,jdbcType=VARCHAR},
+            </if>
+            <if test="lypriceA != null">
+                lypriceA = #{lypriceA,jdbcType=INTEGER},
+            </if>
+            <if test="lypriceB != null">
+                lypriceB = #{lypriceB,jdbcType=INTEGER},
+            </if>
+            <if test="lyage != null">
+                lyage = #{lyage,jdbcType=INTEGER},
+            </if>
+            <if test="lypicture != null">
+                lypicture = #{lypicture,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where lyid=#{lyid}
+    </update>
 
 
-	<!--删除信息 根据id号 -->
-	<delete id="delete" parameterType="Long">
-		delete from pcly
-		where lyid=#{lyid}
-	</delete>
+    <!--删除信息 根据id号 -->
+    <delete id="delete" parameterType="Long">
+        delete
+        from pcly
+        where lyid = #{lyid}
+    </delete>
 
-	<!-- 先找出id号 利用id号进行修改 -->
-	<select id="getPcly" parameterType="Long" resultType="pcly">
-		select * from pcly where lyid=#{lyid}
-	</select>
+    <!-- 先找出id号 利用id号进行修改 -->
+    <select id="getPcly" parameterType="Long" resultType="pcly">
+        select *
+        from pcly
+        where lyid = #{lyid}
+    </select>
 
-	<!-- 通過項目名称模糊查寻 -->
-	<select id="getPcName" parameterType="pcly" resultType="pcly">
-		SELECT * FROM pcly where lyname like '%${lyname}%'
-	</select>
+    <!-- 通過項目名称模糊查寻 -->
+    <select id="getPcName" parameterType="pcly" resultType="pcly">
+        SELECT *
+        FROM pcly
+        where lyname like '%${lyname}%'
+    </select>
 
 </mapper>

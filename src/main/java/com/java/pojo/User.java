@@ -3,6 +3,7 @@ package com.java.pojo;
 import java.io.Serializable;
 
 public class User implements Serializable {
+    private static final long serialVersionUID = -4870700471343762990L;
     private long userID;
 
     private String username;
@@ -23,7 +24,6 @@ public class User implements Serializable {
 
     public User() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     public User(long userID, String username, String password, String email, String phone, String address, String qq,

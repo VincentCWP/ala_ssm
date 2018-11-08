@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.java.mapper.OrderMapper" > 
-  
-  
-  <insert id="insertOrder" parameterType="Order">
-  	INSERT INTO `order` SET `oname`=#{oname},`omessage`=#{omessage},`odizhi`=#{odizhi},`ochuxing`=#{ochuxing},`ostate`=0,`uname`=#{uname},`uphone`=#{uphone},`ut`=#{ut},`omoney`=#{omoney}
-  </insert>
-  
-  
+<mapper namespace="com.java.mapper.OrderMapper">
+
+
+    <insert id="insertOrder" parameterType="Order">
+        INSERT INTO `order`
+        SET `oname`    = #{oname},
+            `omessage` = #{omessage},
+            `odizhi`   = #{odizhi},
+            `ochuxing` = #{ochuxing},
+            `ostate`   = 0,
+            `uname`    = #{uname},
+            `uphone`   = #{uphone},
+            `ut`       = #{ut},
+            `omoney`   = #{omoney}
+    </insert>
+
+
 </mapper>

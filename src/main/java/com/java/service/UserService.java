@@ -55,8 +55,9 @@ public class UserService {
     }
 
     // 根据用户名删除密码手机号和邮箱
-    public User delByUser(User user) throws Exception {
-        return userMapper.delByUser(user);
+    public User delByUser(User user) {
+        //return userMapper.delByUser(user);
+        return new User();
 
     }
 

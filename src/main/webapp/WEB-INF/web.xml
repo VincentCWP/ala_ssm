@@ -1,78 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-		 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
 	http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-		 id="WebApp_ID" version="3.1">
-	<welcome-file-list>
-		<welcome-file>/pages/admin/wen.jsp</welcome-file>
-		<!--<welcome-file>index.jsp</welcome-file>-->
-	</welcome-file-list>
+         id="WebApp_ID" version="3.1">
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 
-	<!-- 加载spring容器 -->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
+    <!-- 加载spring容器 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:ApplicationContext-*.xml</param-value>
-	</context-param>
-
-
-	<!-- springmvc前端控制器 -->
-	<servlet>
-		<servlet-name>SpringMvc</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:SpringMvc.xml</param-value>
-		</init-param>
-
-		<!-- 在tomcat启动的时候就加载这个servlet -->
-		<load-on-startup>1</load-on-startup>
-	</servlet>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:ApplicationContext-*.xml</param-value>
+    </context-param>
 
 
-	<!--<servlet>-->
-		<!--&lt;!&ndash;<servlet-name>default</servlet-name>&ndash;&gt;-->
-		<!--&lt;!&ndash;<servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>&ndash;&gt;-->
-		<!--&lt;!&ndash;<init-param>&ndash;&gt;-->
-			<!--&lt;!&ndash;<param-name>debug</param-name>&ndash;&gt;-->
-			<!--&lt;!&ndash;<param-value>0</param-value>&ndash;&gt;-->
-		<!--&lt;!&ndash;</init-param>&ndash;&gt;-->
+    <!-- springmvc前端控制器 -->
+    <servlet>
+        <servlet-name>SpringMvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:SpringMvc.xml</param-value>
+        </init-param>
 
-		<!--<init-param>-->
-			<!--&lt;!&ndash; 图片要想上传成功，需要添加readonly选项，它的值设置成为：false &ndash;&gt;-->
-			<!--<param-name>readonly</param-name>-->
-			<!--<param-value>false</param-value>-->
-		<!--</init-param>-->
-
-		<!--<init-param>-->
-			<!--<param-name>listings</param-name>-->
-			<!--&lt;!&ndash; param-value原来的值是：false 这里将它改为：true &ndash;&gt;-->
-			<!--<param-value>true</param-value>-->
-		<!--</init-param>-->
-		<!--<load-on-startup>1</load-on-startup>-->
-	<!--</servlet>-->
+        <!-- 在tomcat启动的时候就加载这个servlet -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
 
-	<servlet-mapping>
-		<servlet-name>SpringMvc</servlet-name>
-		<url-pattern>*.action</url-pattern>
-	</servlet-mapping>
+    <!--<servlet>-->
+    <!--&lt;!&ndash;<servlet-name>default</servlet-name>&ndash;&gt;-->
+    <!--&lt;!&ndash;<servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>&ndash;&gt;-->
+    <!--&lt;!&ndash;<init-param>&ndash;&gt;-->
+    <!--&lt;!&ndash;<param-name>debug</param-name>&ndash;&gt;-->
+    <!--&lt;!&ndash;<param-value>0</param-value>&ndash;&gt;-->
+    <!--&lt;!&ndash;</init-param>&ndash;&gt;-->
 
-	<!-- 配置Post请求乱码 -->
-	<filter>
-		<filter-name>CharacterEncodingFilter</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-		<init-param>
-			<param-name>encoding</param-name>
-			<param-value>utf-8</param-value>
-		</init-param>
-	</filter>
-	<filter-mapping>
-		<filter-name>CharacterEncodingFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+    <!--<init-param>-->
+    <!--&lt;!&ndash; 图片要想上传成功，需要添加readonly选项，它的值设置成为：false &ndash;&gt;-->
+    <!--<param-name>readonly</param-name>-->
+    <!--<param-value>false</param-value>-->
+    <!--</init-param>-->
+
+    <!--<init-param>-->
+    <!--<param-name>listings</param-name>-->
+    <!--&lt;!&ndash; param-value原来的值是：false 这里将它改为：true &ndash;&gt;-->
+    <!--<param-value>true</param-value>-->
+    <!--</init-param>-->
+    <!--<load-on-startup>1</load-on-startup>-->
+    <!--</servlet>-->
+
+
+    <servlet-mapping>
+        <servlet-name>SpringMvc</servlet-name>
+        <url-pattern>*.action</url-pattern>
+    </servlet-mapping>
+
+    <!-- 配置Post请求乱码 -->
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

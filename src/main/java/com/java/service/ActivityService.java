@@ -30,7 +30,6 @@ public class ActivityService {
 	}
 	public ActivityService() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public ActivityService(ActivityMapper activityMapper) {
 		super();

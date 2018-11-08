@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Pcly implements Serializable {
 
+    private static final long serialVersionUID = 5281345966350753404L;
     private Long lyid;
 
     private String lytype;

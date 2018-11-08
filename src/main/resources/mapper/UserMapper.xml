@@ -6,12 +6,20 @@
   <select id="findUserByNameAndPassword" resultType="com.java.pojo.User">
   SELECT * FROM  `user` WHERE username=#{username} AND password=#{password};
   </select>
-   <insert id="addUser" parameterType="com.java.pojo.User">
-   
-   INSERT INTO user SET username=#{username},password=#{password},email=#{email},phone=#{phone},address=#{address},qq=#{qq},babyname=#{babyname},role=#{role} 
-   </insert>
-   
-   <select id="isUserExists" parameterType="com.java.pojo.User" resultType="com.java.pojo.User">
+    <insert id="addUser" parameterType="com.java.pojo.User">
+
+        INSERT INTO user
+        SET username = #{username},
+            password = #{password},
+            email    = #{email},
+            phone    = #{phone},
+            address  = #{address},
+            qq       = #{qq},
+            babyname = #{babyname},
+            role     = #{role}
+    </insert>
+
+    <select id="isUserExists" parameterType="com.java.pojo.User" resultType="com.java.pojo.User">
        SELECT * FROM  `user` WHERE username=#{username}
    </select>
    

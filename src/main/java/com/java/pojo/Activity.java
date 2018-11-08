@@ -3,7 +3,8 @@ package com.java.pojo;
 import java.io.Serializable;
 
 public class Activity implements Serializable {
-    
+
+    private static final long serialVersionUID = -1655902272011285853L;
     private Long hdid;
 
     
