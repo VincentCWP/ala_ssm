@@ -5,15 +5,29 @@
     <artifactId>ala_ssm</artifactId>
     <packaging>war</packaging>
     <version>2.1</version>
-    <name>ala_ssm Maven Webapp</name>
-    <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <spring.version>5.1.2.RELEASE</spring.version>
         <jackson.version>2.9.7</jackson.version>
+        <druid.version>1.1.12</druid.version>
+        <commons.fileupload.version>1.3.3</commons.fileupload.version>
+        <httpclient.version>4.5.6</httpclient.version>
+        <mysql.version>8.0.13</mysql.version>
+        <mybatis.version>3.4.6</mybatis.version>
+        <mybatis.spring.version>1.3.2</mybatis.spring.version>
+        <poi.version>4.0.0</poi.version>
+        <servlet.version>4.0.1</servlet.version>
+        <tomcat.version>9.0.13</tomcat.version>
+        <jstl.version>1.2</jstl.version>
+        <junit.version>4.12</junit.version>
+        <logback.version>1.2.3</logback.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <maven.compiler.version>3.8.0</maven.compiler.version>
+        <java.version>1.8</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -50,23 +64,17 @@
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
-            <version>1.3.3</version>
+            <version>${commons.fileupload.version}</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.1.12</version>
+            <version>${druid.version}</version>
         </dependency>
-        <!--        <dependency>
-                    <groupId>commons-httpclient</groupId>
-                    <artifactId>commons-httpclient</artifactId>
-                    <version>3.1</version>
-                </dependency>-->
-        <!-- 微信支付工具类 -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.5.6</version>
+            <version>${httpclient.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
@@ -74,121 +82,80 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- 银联支付安全
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk16</artifactId>
-            <version>1.46</version>
-        </dependency>-->
-
-        <!-- 数据库驱动 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.13</version>
+            <version>${mysql.version}</version>
             <scope>runtime</scope>
         </dependency>
-
-        <!-- 整合mybatis -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
-            <version>1.3.2</version>
+            <version>${mybatis.spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.4.6</version>
+            <version>${mybatis.version}</version>
         </dependency>
-        <!-- 极光推送 -->
-        <!--<dependency>-->
-        <!--<groupId>cn.jpush.api</groupId>-->
-        <!--<artifactId>jpush-client</artifactId>-->
-        <!--<version>3.1.3</version>-->
-        <!--</dependency>-->
-        <!-- pdf打印
-        <dependency>
-            <groupId>com.itextpdf</groupId>  
-            <artifactId>itextpdf</artifactId>  
-            <version>5.4.2</version>  
-        </dependency>  
-        <dependency>  
-            <groupId>com.itextpdf.tool</groupId>  
-            <artifactId>xmlworker</artifactId>  
-            <version>5.4.1</version>  
-        </dependency>   -->
-        <!-- json解析器 -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
-        <!-- 日志 -->
-        <!-- excel导出 -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>4.0.0</version>
+            <version>${poi.version}</version>
         </dependency>
-
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
+            <version>${servlet-version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jsp-api</artifactId>
-            <version>9.0.12</version>
+            <version>${tomcat.version}</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- 银联支付
-        <dependency>
-            <groupId>com.unionpay</groupId>
-            <artifactId>acp</artifactId>
-            <version>1.0.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/upacp_sdk-1.0.0.jar</systemPath>
-        </dependency>-->
-
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
-            <version>1.2</version>
+            <version>${jstl.version}</version>
         </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
+            <version>${logback.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
-            <version>1.7.25</version>
+            <version>${slf4j.version}</version>
         </dependency>
     </dependencies>
+    
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>${maven.compiler.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${jackson.version}</target>
                     <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>ala_ssm</finalName>
+        <finalName>ala</finalName>
     </build>
 </project>
